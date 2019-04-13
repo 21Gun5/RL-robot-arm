@@ -2,7 +2,9 @@
 
 import pyglet
 import numpy as np
-
+'''
+环境的编写主要是pyglet的应用，只追求实现效果，并未关注技术细节
+'''
 class ArmEnv(object):       # 手臂的运动（处理逻辑运行）
     viewer = None      # 最开始没有viewer
     dt = 0.1                                # 转动的速度和 dt 有关
@@ -65,7 +67,7 @@ class Viewer(pyglet.window.Window):     # 手臂的可视化
 
         # 将手臂的作图信息放入这个batch
         self.batch = pyglet.graphics.Batch()    # 创建batch对象
-        
+
         # 添加arm信息
         self.arm_info = arm_info
         # 添加窗口中心点, 手臂的根
@@ -79,7 +81,7 @@ class Viewer(pyglet.window.Window):     # 手臂的可视化
                      goal['x'] + goal['l'] / 2, goal['y'] + goal['l'] / 2,
                      goal['x'] + goal['l'] / 2, goal['y'] - goal['l'] / 2]),
             ('c3B', (86, 109, 249) * 4))
-        
+
         # 添加第一条手臂至batch
         self.arm1 = self.batch.add(
                 4, pyglet.gl.GL_QUADS, None,  # 4个顶点；GL_QUADS表矩形形式
